@@ -20,7 +20,7 @@ jobs:
       run: env GOOS=windows GOARCH=amd64 CGO_ENABLED=0 go test -v ./...
 
     - name: Build voiui win/amd64
-      run: env GOOS=windows GOARCH=amd64 CGO_ENABLED=0 go build -o voiui.exe cmd/voiui/main.go
+      run: env GOOS=windows GOARCH=amd64 CGO_ENABLED=0 go build -ldflags="-H windowsgui" -o voiui.exe cmd/voiui/main.go
 
     - name: Prepare version file
       run: echo $GITHUB_SHA > version
